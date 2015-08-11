@@ -1,0 +1,180 @@
+#!/bin/bash
+
+$dev    #name of the WLAN interface (e.g wlan1, wlan2)
+$phydev #name of the physical interface (e.g phy0)
+
+
+#####################
+### MAIN SCRIPTS  ###
+#####################
+
+./start.sh $dev
+ #stop network manager (required for the AP to work)
+ #launch an AP on $interface (usually wlan1, wlan2 or wlan3)
+ #create monitor interface mon0
+ #monitoring and dumping log in logs folder 
+
+./stop.sh $dev
+ #kill all network processes (hostapd, aircrack-ng suite ...)
+ #stop AP running on $dev
+ #stop monitoring
+ #remove monitor interface mon0
+ #restart network-manager
+ 
+
+######################
+### OTHER SCRIPTS  ###
+######################
+#IMPORTANT: When you use those scripts on stand-alone, be careful that
+#$wconfig variable is exported to this folder by running 'export $wconfig="$PWD"'
+
+#... located in scripts folder
+./scripts/psm_on.sh $dev      #turn on psm on $dev interface
+./scripts/psm_off.sh $dev     #turn off psm on $dev interface
+./scripts/start_ap.sh $dev    #start an Access Point on $dev
+./scripts/stop_ap.sh $dev     #stop an Access Point running on $dev
+./scripts/monitor_ap.sh $dev  #create a new monitor interface mon0 and record packets
+			      #dump file is saved in logs/name.cap
+
+###########################
+### HIGH LEVEL COMMANDS ###
+###########################
+
+##Kernel version
+uname -v #kernel version
+uname -r #kernel release 
+uname -s #kernel name
+uname -m #machine hardware name
+uname -i #hardware platform
+uname -a #all
+
+#See USB Wireless Card
+lsusb | grep Atheros
+
+#See PCI Wireless Card
+lspci -vvnn | grep Network
+
+#Get some info about ath9k_htc driver
+modinfo ath9k_htc
+modinfo ath9k_htc | grep parm #to see only parameters (useful to see if debugging is enabled)
+
+#Check if ath9k_htc module is running
+lsmod | grep ath9k_htc
+
+#Check that initialization of driver was a success
+dmesg | grep ath
+
+#Restart ath9k_htc module if there is a problem
+modprobe -r ath9k_htc #disable the module
+modprobe ath9k_htc    #enable the module
+
+ # ... with powersave (PS) DEBUGGING enabled
+ modprobe ath9k_htc ps_enable=1
+ modprobe ath9k_htc debug=0x00000800 #debug mask for PS
+ 
+ # ... with powersave (PS) DEBUGGING enabled (permanent)
+ #add the following line to /etc/modprobe.d/atheros.conf
+ options ath9k_htc debug=0x00000800 #debug mask for PS
+
+
+#See interfaces (MAC Address, RX/TX Packets, collisions, errors...)
+ifconfig
+
+#Bring WLAN interface UP or DOWN
+ifconfig $dev up
+ifconfig $dev down
+
+#See interfaces (Modes, ESSID, Access Point, Power Management ...)
+iwconfig
+
+#Change mode (managed, monitor...)
+iwconfig $dev mode managed
+iwconfig $dev mode monitor
+
+#Scan for ESSID
+iwlist $dev scan
+
+#Bring interface up at boot
+#Put these lines in /etc/network/interfaces
+auto $dev
+iface $dev inet static #static ip
+address 10.10.0.1
+netmask 255.255.255.0
+
+##########################
+### LOW LEVEL COMMANDS ###
+##########################
+
+#Change interface type/mode
+iw $dev set type managed
+iw $dev set type monitor
+iw $dev set type ap
+iw $dev set type ibss
+
+#Power management (PS)
+iw $dev get power_save
+iw $dev set power_save on
+iw $dev set power_save off
+iwconfig $dev power 500m #tweak PS time-out
+
+#See physical interfaces
+iw dev
+
+#Info about physical layer
+iw phy $phydev info
+
+########################
+### AP CONFIGURATION ###
+########################
+
+#Bring network manager up/down
+service network-manager start
+service network-manager stop
+service network-manager restart
+
+#Kill processes to relaunch
+airmon-ng check kill
+
+#Launch AP
+./start.sh
+hostapd -d hostapd_def.conf #w/o 'start.sh' script
+
+#Stop AP
+./stop.sh
+
+################################
+### CAPTURING AND MONITORING ###
+################################
+
+#Logs
+vi /var/log/syslog
+
+#Trace ath9k_htc driver (function calls)
+sudo su
+cd /sys/kernel/debug/tracing
+cat function > current_tracer
+cat trace | grep -e cfg80211 -e ieee80211 -e ath9k
+
+#Add new monitor interface
+  #if aircrack-ng suite is installed
+   airmong-ng start $dev 
+  #else ...
+   iw phy $phydev interface add mon0 type monitor
+   ifconfig mon0 up
+   ifconfig mon0 10.0.0.1 netmask 255.255.255.0
+
+#Delete monitor interface
+iw dev $dev del
+
+#Dump wireless traffic in stdout
+tcpdump -i mon0
+
+#Dump wireless traffic in file
+  #if aircrack-ng suite is installed
+   airodump-ng --band abg --beacons --write logs/beacons.cap mon0 #record beacons
+   airodump-ng --band abg --write logs/all.cap mon0               #record all traffic
+  #else ...
+   tcpdump -i mon0 -n -s 64 -w logs/dump.cap                     
+
+#Analyze dump file
+wireshark logs/dump.cap
