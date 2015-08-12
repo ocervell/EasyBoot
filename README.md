@@ -8,52 +8,51 @@ It specifically provides tools to compile hammerhead kernel (Nexus 5).
 
 The tree is composed of two main folders: 'android' and 'wireless-config':
 
-*android*
-
+**android**:
 Contains all the tools to compile and flash a new kernel in a Nexus 5 phone, though
 it can be easily adapted to any Android phone. It also provides a custom recovery (TWRP) so you
 don't hardfreeze your phone.
 
-*wireless-config*
-
+**wireless-config**:
 Contains all the tools to turn an hardware device into an Access Point.
 The hardware device has to be compatible with MONITOR MODE. If it is not, the scripts won't work.
 It also enables PSM (Power Save Mode) if your wireless driver supports it.
 
-Note: for a more detailed listing of what is included, go to PROJECT TREE section.
+*Note: for a more detailed listing of what is included, go to PROJECT TREE section.*
 
 ##**GETTING STARTED**
 
 **1. Initial configuration**
 
-   ./configure
-     #export a global variable in your ~/.bashrc file.
-     #install all necessary tools using apt-get install.
-     #clone repositories needed to get started.
-     #get sources for hammerhead kernel (Nexus 5).
+`./configure`
+* export a global variable in your ~/.bashrc file.
+* install all necessary tools using apt-get install.
+* clone repositories needed to get started.
+* get sources for hammerhead kernel (Nexus 5).
 
 **2. Initiate the environment**
 
-   source init_env.sh
-   Important: Each time you reboot your computer, those global variables will disappear.
-   You have to source it again everytime. To avoid that, you can put the content of init_env.sh
-   in your ~/.bashrc file.
+`source init_env.sh`
+* Important: Each time you reboot your computer, those global variables will disappear.
+You have to source it again everytime. To avoid that, you can put the content of init_env.sh
+in your ~/.bashrc file.
   
-   If you're using a different kernel than me, change KERNEL variable.
-   If you're using a different toolchain than me, change TOOLCHAIN variable.
-   If you don't know, don't change anything.
+* If you're using a different kernel than me, change KERNEL variable.
+* If you're using a different toolchain than me, change TOOLCHAIN variable.
+* If you don't know, don't change anything.
 
 **3. Play with the scripts**
 
-   In each folder 'android' and 'wireless-config' you have a 'scripts' folder.
-   In the 'scripts' folder, you will find scripts that will make your life easy.
-   Scripts are detailed in README.doc file in each folder, along with instructions.
+* In each folder 'android' and 'wireless-config' you have a 'scripts' folder.
+* In the 'scripts' folder, you will find scripts that will make your life easy.
+* Scripts are detailed in README.doc file in each folder, along with instructions.
 
 ##**PROJECT TREE**
 
 Once you're done with the configuration and initialization, you will
 get a similar tree than the one showed below. Only important files are shown.
 
+```
 MTP
 ├── README.doc	       #GETTING STARTED
 ├── configure          #initial configuration (launch one time) 
@@ -124,5 +123,5 @@ MTP
         ├── psm_on.sh           #turn on psm
         ├── start_ap.sh         #start AP mode
         └── stop_ap.sh          #stop AP mode
-   
+```   
 
