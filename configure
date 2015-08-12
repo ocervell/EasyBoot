@@ -47,6 +47,7 @@ sudo git submodule update
 cd $KERNEL
 sudo git checkout android-msm-hammerhead-3.4-lollipop-release
 
+echo ""
 echo "##############"
 echo "### IMAGES ###"
 echo "##############" 
