@@ -3,7 +3,7 @@
 
 ##**PRESENTATION**
 
-The ultimate goal of this project is to modify kernels and drivers of an Android kernel.
+The ultimate goal of this project is to modify or add functionalities to the kernel and drivers for an Android device.
 The objective is to achieve high efficiency and not lose time setting everything up.
 It specifically provides tools to compile hammerhead kernel (Nexus 5). 
 
