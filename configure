@@ -3,9 +3,11 @@
 #Main environment variable
 if ! grep -q 'MTP' "$HOME/.bashrc"
 then
+   sudo sed -i '/export MTP/d' $HOME/.bashrc
    echo "export MTP='$PWD'" >> $HOME/.bashrc
 fi
 source $HOME/.bashrc
+MTP=$PWD
 
 #Secondary environment variables
 source $MTP/init.sh
