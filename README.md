@@ -33,7 +33,7 @@ It also enables PSM (Power Save Mode) if your wireless driver supports it.
 **2. Initiate the environment**
 
 `source init_env.sh`
-* Important: Each time you reboot your computer, those global variables will disappear.
+* **Important:** Each time you reboot your computer, those global variables will disappear.
 You have to source it again everytime. To avoid that, you can put the content of init_env.sh
 in your ~/.bashrc file.
   
