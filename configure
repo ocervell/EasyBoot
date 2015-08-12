@@ -36,67 +36,16 @@ fi
 
 #Clone repositories
 echo ""
-echo "##########################"
-echo "### CLONE REPOSITORIES ###"
-echo "##########################"
+echo "######################"
+echo "### GIT SUBMODULES ###"
+echo "######################"
 
 sudo git submodule init
 sudo git submodule update
 
-#TOOLCHAIN (ARM-EABI-4.7)
-echo ""
-echo "===> Toolchain (arm-eabi-4.7) <==="
-#sleep 1
-#sudo mkdir -p $ANDROID/toolchain
-#cd $ANDROID/toolchain
-#sudo git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/
-
-#ANDROID-IMG-TOOLS
-echo ""
-echo "===> Android Image Repack Tools <==="
-#sleep 1
-#sudo mkdir -p $ANDROID/android-img-tools
-#while true; do
-#   if ! sudo git clone https://github.com/ocervell/android_img_repack_tools.git $ANDROID/android-img-tools
-#   then
-#      if [ -d "$ANDROID/android-img-tools" ]; then
-#     	   echo "Error: Failed fetching repository for android_img_repack_tools.git."
-#	   echo ""
-#           read -p "Remove old version of android-img-tools and fetch the most recent from distant repository (y/n) ? " yn
-#          case $yn in
-#           [Yy]* ) echo ""
-#		   echo "Removing old android-img-tools ..."
-#		   sudo rm -rf $ANDROID/android-img-tools
-#		   echo ""
-#		   echo "Cloning repository ..."
-#  		   sudo git clone https://github.com/ocervell/android_img_repack_tools.git $ANDROID/android-img-tools
-#		   break;;		   
-
-#           [Nn]* ) echo ""
-#		   echo "Continuing with current directory. Cleaning up build."
-#		   cd $ANDROID/android-img-tools
-#		   sudo make clear
-#		   sudo make clean
-#		   break;;
-#               * ) echo "Please answer yes or no.";;
-#           esac
-#      else
-#           exit 1
-#      fi
-#   fi
-#done
-#sleep 1
-
-#HAMMERHEAD_KERNEL
-echo ""
-echo "===> Hammerhead Kernel Source <==="
-sleep 1
-#sudo mkdir -p $ANDROID/kernels/hammerhead
-#if ! sudo git clone https://android.googlesource.com/kernel/msm.git $KERNELS/hammerhead
-#then
-#    echo "Error: Failed fetching repository for msm.git. Try manually"
-#    exit 1
-#fi
+echo "##############"
+echo "### IMAGES ###"
+echo "##############" 
 
 echo ""
 echo "===> Hammerhead Kernel Factory Image <==="
