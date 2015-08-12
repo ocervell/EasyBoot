@@ -36,7 +36,6 @@ It also enables PSM (Power Save Mode) if your wireless driver supports it.
 * **Important:** Each time you reboot your computer, those global variables will disappear.
 You have to source it again everytime. To avoid that, you can put the content of init_env.sh
 in your ~/.bashrc file.
-  
 * If you're using a different kernel than me, change KERNEL variable.
 * If you're using a different toolchain than me, change TOOLCHAIN variable.
 * If you don't know, don't change anything.
