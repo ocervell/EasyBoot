@@ -3,7 +3,7 @@
 
 ##**PRESENTATION**
 
-The ultimate goal of this project is to modify kernels and drivers of an Android kernel.
+The ultimate goal of this project is to modify or add functionalities to the kernel and drivers for an Android device.
 The objective is to achieve high efficiency and not lose time setting everything up.
 It specifically provides tools to compile hammerhead kernel (Nexus 5). 
 
@@ -61,7 +61,7 @@ MTP
 ├── android
 │   ├── README.doc	    #DOCUMENTATION
 │   │
-│   ├── android-img-tools   #pack, unpack, make boot images
+│   ├── android-img-tools   #Pack, unpack, make boot images
 │   │   ├── mkbootimg	        #make a new boot image from a kernel build image
 │   │   └── unpackbootimg       #unpack factory image
 │   │
@@ -69,7 +69,7 @@ MTP
 │   │   ├── system-images       #images to be used by Android emulator
 │   │   └── platform-tools      #flashboot, adb and Android emulator
 │   │
-│   ├── boot-img            #images to be flashed into device
+│   ├── boot-img            #Images to be flashed into device
 │   │   ├── radio-hammerhead-m8974a-2.0.50.2.26.img
 │   │   ├── bootloader-hammerhead-hhz12h.img
 │   │   ├── boot.img	        #kernel
@@ -79,16 +79,14 @@ MTP
 │   │   ├── system.img
 │   │   └── userdata.img
 │   │
-│   ├── custom-recovery     #custom recovery (TWRP)
+│   ├── custom-recovery     #Custom recovery (TWRP)
 │   │   └── twrp-2.8.7.1-hammerhead.img
 │   │
-│   ├── toolchain           #cross-compiling toolchain
+│   ├── toolchain           #Cross-compiling toolchain
 │   │   └── arm-eabi-4.7    
 │   │
-│   ├── kernels		    #different kernels
-│   │   ├── hammerhead          #android 'hammerhead' kernel (Nexus 5)
-│   │   ├── linux-3.4.0         #linux kernel 3.4.0
-│   │   └── omnirom             #omnirom kernel
+│   ├── kernels		        #Kernel sources (you can add new ones)
+│   │   └── hammerhead          #android 'hammerhead' kernel (Nexus 5)
 │   │
 │   └── scripts             #scripts to build, make boot image, unlock and flash device
 │       ├── build_kernel.sh     #build kernel script
@@ -100,16 +98,16 @@ MTP
 │       └── unlock_phone.sh     #unlock oem of phone
 │
 └── wireless-config
-    ├── README.doc	    #DOCUMENTATION
+    ├── README.doc	        #DOCUMENTATION
     ├── hostapd.conf	    #hostapd AP config
     ├── hostapd_def.conf    #hostapd AP default config
-    ├── start.sh	    #start AP, start monitoring and turn Power Save on
-    ├── stop.sh		    #stop AP, stop monitoring and turn Power Save off
+    ├── start.sh	        #start AP, start monitoring and turn Power Save on
+    ├── stop.sh		        #stop AP, stop monitoring and turn Power Save off
     ├── cleanup.sh          #delete all archived log (clear 'archive' folder)
     │
-    ├── archive		    #old logs
+    ├── archive		        #Old logs
     │
-    ├── logs		    #airodump logs, ap log and ath9k_htc functions trace
+    ├── logs		        #Airodump logs, ap log and ath9k_htc functions trace
     │   ├── ap_log.txt          #log of Access Point actions
     │   ├── ath9k_trace_log.txt #trace of functions calls inside ath9k_htc driver
     │   ├── beacons.cap-01.cap  #dump file to be open with Wireshark
@@ -117,11 +115,11 @@ MTP
     │   ├── beacons.cap-01.kismet.csv
     │   └── beacons.cap-01.kismet.netxml
     │
-    └── scripts	            #scripts to on/off AP (hostapd), monitor, turn on/off PSM
-        ├── monitor_ap.sh       #start a monitor interface and create a record dump file
-        ├── psm_off.sh          #turn off psm
-        ├── psm_on.sh           #turn on psm
-        ├── start_ap.sh         #start AP mode
-        └── stop_ap.sh          #stop AP mode
+    └── scripts	            #Scripts to on/off AP (hostapd), monitor, turn on/off PSM
+        ├── monitor_ap.sh       #start a monitor interface and create a record dump file
+        ├── psm_off.sh          #turn off psm
+        ├── psm_on.sh           #turn on psm
+        ├── start_ap.sh         #start AP mode
+        └── stop_ap.sh          #stop AP mode
 ```   
 
