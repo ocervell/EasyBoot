@@ -6,3 +6,4 @@ sleep 8
 
 fastboot devices
 fastboot oem unlock
+#!/bin/bash

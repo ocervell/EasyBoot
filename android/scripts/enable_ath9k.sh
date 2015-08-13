@@ -1,4 +1,5 @@
 #!/bin/bash
+source ../../init.sh
 
 echo ""
 echo "===> Modifying hammerhead_defconfig file <==="
@@ -15,3 +16,4 @@ echo "Please use build_kernel.sh script or run the following commands:"
 echo "  cd $KERNEL"
 echo "  make hammerhead_defconfig"
 echo "  make"
+#!/bin/bash

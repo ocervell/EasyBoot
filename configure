@@ -1,16 +1,17 @@
 #!/bin/bash
 
-#Main environment variable
+#Main environment variables
+MTP=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) #Main folder Path
+export MTP=$MTP
+source $MTP/init.sh #Script containing all others environment variables
+
 if ! grep -q 'MTP' "$HOME/.bashrc"
 then
    sudo sed -i '/export MTP/d' $HOME/.bashrc
    echo "export MTP='$PWD'" >> $HOME/.bashrc
 fi
 source $HOME/.bashrc
-MTP=$PWD
 
-#Secondary environment variables
-source $MTP/init.sh
 
 #Checking for an Ubuntu version
 echo ""
@@ -64,7 +65,7 @@ sudo mv $BOOTIMG/hammerhead-lmy48i/* $BOOTIMG
 sudo rm *.sh
 sudo rm *.txt
 sudo rm *.zip
-
+sudo rm *.bat
 
 echo ""
 echo "===> Recovery Image (TWRP) <==="

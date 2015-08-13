@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+source ../../init.sh
 
 adb devices
 adb reboot bootloader

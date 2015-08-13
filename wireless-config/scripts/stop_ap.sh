@@ -1,8 +1,5 @@
 #!/bin/bash
-
-### STOP_AP.SH ###
-
-#!/bin/bash
+source ../../init.sh
 
 ### STOP_AP.SH ###
 
@@ -49,6 +46,9 @@ echo ""
 echo "===> Stop Access Point (AP) <==="
 echo "Killing running processes ..."
 sudo airmon-ng check kill
+
+echo "Killing hostapd ..."
+sudo kill $(ps aux | grep hostapd | awk '{print $2}')
 
 echo ""
 echo "Restarting network manager ..."

@@ -1,4 +1,5 @@
 #!/bin/bash
+source ../../init.sh
 
 ### PSM_OFF.SH ###
 

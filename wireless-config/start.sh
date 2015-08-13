@@ -1,4 +1,5 @@
 #!/bin/bash
+source ../init.sh
 
 ### START.SH ###
 
@@ -59,4 +60,4 @@ sleep 1
 
 source $WCONFIG/scripts/psm_on.sh $dev
 source $WCONFIG/scripts/start_ap.sh $dev &
-(exec gnome-terminal -x "bash $WCONFIG/scripts/monitor_ap.sh $dev")
+gnome-terminal -x bash -c "$WCONFIG/scripts/monitor_ap.sh $dev"

@@ -13,9 +13,11 @@ export USE_CCACHE=1 #build cache to accelerate compilation
 ###################
 ### ENVIRONMENT ###
 ###################
-#Running the ./configure script should have exported MTP which is the root path of EasyBoot
+#Running the ./configure script should have exported MTP which is the root path of EasyBoot.
+#We still do it in this script "just in case".
 #Don't touch those variables as the scripts won't run anymore if you do.
 
+export MTP=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 export ANDROID=$MTP/android                           
 export WCONFIG=$MTP/wireless-config		      
 export KERNELS=$ANDROID/kernels

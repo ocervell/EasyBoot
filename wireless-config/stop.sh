@@ -1,4 +1,5 @@
 #!/bin/bash
+source ../init.sh
 
 ### STOP.SH ###
 
@@ -45,23 +46,30 @@ if [ $? -eq 1 ]
     exit
 fi
 
-echo "===> Stop Access Point, Remove Monitor Interface and Archive Logs <==="
 
-echo "End of capture, removing monitor interface mon0 ..."
+source $WCONFIG/scripts/stop_ap.sh $dev
+
+echo ""
+echo "===> Remove Monitor Interface mon0 <==="
 sudo airmon-ng stop $dev
 sudo iw dev mon0 del
 
-echo "Stopping Access Point ..."
-source $WCONFIG/scripts/stop_ap.sh $dev
-
-echo "Listing of wlan interface ..."
+echo ""
+echo "===> Listing of remaining wlan interface <==="
 iwconfig
 
 echo ""
-echo "Open dump file in wireshark ..."
-wireshark $WCONFIG/logs/beacons.cap-01.cap
-
+echo "===> Wireshark Analysis <==="
+read -p "Do you want to analyze dump file with Wireshark (y/n)? " yn
+case $yn in
+   [Yy]* ) echo ""
+           echo "Open dump file in wireshark ..."
+           wireshark $WCONFIG/logs/beacons.cap-01.cap &
+	   ;;
+       * ) ;;
+esac
 echo ""
+
 echo "===> Archiving logs <==="
 cd $WCONFIG/logs
 for f in *; do sudo mv -- "$f" "$f-$(stat -c %Y "$f" | date +%Y%m%d_%H%M)"; done
@@ -70,4 +78,5 @@ sudo mv $WCONFIG/logs/* $WCONFIG/archive/
 echo " done."
 
 echo ""
-echo "Script exited successfully."
+echo "Script ended successfully."
+

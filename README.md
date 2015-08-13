@@ -44,7 +44,7 @@ in your ~/.bashrc file.
 **3. Play with the scripts**
 
 * In each folder 'android' and 'wireless-config' you have a 'scripts' folder.
-* In the 'scripts' folder, you will find scripts that will make your life easy.
+* In the 'scripts' folder, you will find shell scripts that will make your life easy.
 * Scripts are detailed in README.doc file in each folder, along with instructions.
 
 ##**PROJECT TREE**

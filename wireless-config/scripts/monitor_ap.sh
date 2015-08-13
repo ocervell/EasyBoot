@@ -1,4 +1,5 @@
 #!/bin/bash
+source ../../init.sh
 
 ### MONITOR_AP.SH ###
 
