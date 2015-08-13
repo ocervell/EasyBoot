@@ -1,5 +1,4 @@
 cd $KERNEL
-make hammerhead_defconfig 
-make -j4
-
-cp $CUSTOM_IMAGE $ANDROID/boot-img
+sudo make hammerhead_defconfig ARCH=$ARCH SUBARCH=$SUBARCH CROSS_COMPILE=$CC
+sudo make -j4 ARCH=$ARCH SUBARCH=$SUBARCH CROSS_COMPILE=$CC
+sudo $CUSTOM_IMAGE $ANDROID/boot-img

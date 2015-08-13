@@ -1,7 +1,5 @@
 #!/bin/bash
 
-MTP=$PWD
-
 export ARCH=arm
 export SUBARCH=arm
 
