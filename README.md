@@ -85,10 +85,10 @@ MTP
 │   ├── toolchain           #Cross-compiling toolchain
 │   │   └── arm-eabi-4.7    
 │   │
-│   ├── kernels		        #Kernel sources (you can add new ones)
+│   ├── kernels		    #Kernel sources (you can add new ones)
 │   │   └── hammerhead          #android 'hammerhead' kernel (Nexus 5)
 │   │
-│   └── scripts             #scripts to build, make boot image, unlock and flash device
+│   └── scripts             #Scripts to build, make boot image, unlock and flash device
 │       ├── build_kernel.sh     #build kernel script
 │       ├── cleanup.sh          #cleanup old builds
 │       ├── flash_all.sh        #flash images contained in boot-img into device
@@ -99,11 +99,11 @@ MTP
 │
 └── wireless-config
     ├── README.doc	        #DOCUMENTATION
-    ├── hostapd.conf	    #hostapd AP config
-    ├── hostapd_def.conf    #hostapd AP default config
+    ├── hostapd.conf	        #hostapd AP config
+    ├── hostapd_def.conf        #hostapd AP default config
     ├── start.sh	        #start AP, start monitoring and turn Power Save on
     ├── stop.sh		        #stop AP, stop monitoring and turn Power Save off
-    ├── cleanup.sh          #delete all archived log (clear 'archive' folder)
+    ├── cleanup.sh              #delete all archived log (clear 'archive' folder)
     │
     ├── archive		        #Old logs
     │
