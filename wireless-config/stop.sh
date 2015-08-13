@@ -52,21 +52,21 @@ sudo airmon-ng stop $dev
 sudo iw dev mon0 del
 
 echo "Stopping Access Point ..."
-source $wconfig/scripts/stop_ap.sh $dev
+source $WCONFIG/scripts/stop_ap.sh $dev
 
 echo "Listing of wlan interface ..."
 iwconfig
 
 echo ""
 echo "Open dump file in wireshark ..."
-wireshark $wconfig/logs/beacons.cap-01.cap
+wireshark $WCONFIG/logs/beacons.cap-01.cap
 
 echo ""
 echo "===> Archiving logs <==="
-cd $wconfig/logs
+cd $WCONFIG/logs
 for f in *; do sudo mv -- "$f" "$f-$(stat -c %Y "$f" | date +%Y%m%d_%H%M)"; done
 cd ..
-sudo mv $wconfig/logs/* $wconfig/archive/
+sudo mv $WCONFIG/logs/* $WCONFIG/archive/
 echo " done."
 
 echo ""

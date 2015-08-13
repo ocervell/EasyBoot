@@ -55,6 +55,6 @@ sudo service network-manager stop
 
 echo ""
 echo "Tweaking hostapd config file ..."
-sed -i "s/^interface.*/interface=$1/" $wconfig/hostapd_def.conf
+sed -i "s/^interface.*/interface=$1/" $WCONFIG/hostapd_def.conf
 echo "Launching hostapd configuration..."
-sudo hostapd -d $wconfig/hostapd_def.conf 2>&1 | sudo tee $wconfig/logs/ap_log.txt &
+sudo hostapd -d $WCONFIG/hostapd_def.conf 2>&1 | sudo tee $WCONFIG/logs/ap_log.txt &

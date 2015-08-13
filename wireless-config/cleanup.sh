@@ -19,6 +19,6 @@
 ##############
 
 echo "===> Cleaning up <==="
-sudo rm -rf logs/*
-sudo rm -rf archive/*
+sudo rm -rf $WCONFIG/logs/*
+sudo rm -rf $WCONFIG/archive/*
 echo " done."

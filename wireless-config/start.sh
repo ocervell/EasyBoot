@@ -57,6 +57,6 @@ echo "===> List WLAN interfaces <==="
 iwconfig
 sleep 1
 
-source $wconfig/scripts/psm_on.sh $dev
-source $wconfig/scripts/start_ap.sh $dev &
-(exec gnome-terminal -x "bash $wconfig/scripts/monitor_ap.sh $dev")
+source $WCONFIG/scripts/psm_on.sh $dev
+source $WCONFIG/scripts/start_ap.sh $dev &
+(exec gnome-terminal -x "bash $WCONFIG/scripts/monitor_ap.sh $dev")

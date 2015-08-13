@@ -62,5 +62,5 @@ iwconfig
 
 echo ""
 echo "Starting dump ..."
-sudo airodump-ng --band abg --beacons --bssid C4:E9:84:10:52:DF --write $wconfig/logs/beacons.cap mon0
+sudo airodump-ng --band abg --beacons --bssid C4:E9:84:10:52:DF --write $WCONFIG/logs/beacons.cap mon0
 read -p "Press any key to end monitoring ..."

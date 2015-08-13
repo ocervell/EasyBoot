@@ -1,26 +1,43 @@
 #!/bin/bash
 
-export ARCH=arm
+#####################
+### BUILD OPTIONS ###
+#####################
+#Change those only if you know what you're doing with cross-compiling
+
+export ARCH=arm #target architecture (android device = arm)
 export SUBARCH=arm
+export CC=$ANDROID/toolchain/arm-eabi-4.7/bin/arm-eabi- #cross-compiler (android device = arm-eabi)
+export USE_CCACHE=1 #build cache to accelerate compilation
 
-export ANDROID=$MTP/android
+###################
+### ENVIRONMENT ###
+###################
+#Running the ./configure script should have exported MTP which is the root path of EasyBoot
+#Don't touch those variables as the scripts won't run anymore if you do.
 
+export ANDROID=$MTP/android                           
+export WCONFIG=$MTP/wireless-config		      
 export KERNELS=$ANDROID/kernels
-export KERNEL=$KERNELS/hammerhead
-
-export CROSS_COMPILE=$ANDROID/toolchain/arm-eabi-4.7/bin/arm-eabi-
-export CC=$ANDROID/toolchain/arm-eabi-4.7/bin/arm-eabi-
-export USE_CCACHE=1
-
 export IMG_TOOLS=$ANDROID/android-img-tools
 export TOOLCHAIN=$ANDROID/toolchain/arm-eabi-4.7/bin
 export BOOTIMG=$ANDROID/boot-img
-export CUSTOM_IMAGE=$KERNEL/arch/arm/boot/zImage-dtb
 export RECOVERY=$ANDROID/custom-recovery
 
-export KERNEL_VER=hammerhead-hhz12h
-export RADIO_VER=hammerhead-m8974a-2.0.50.2.26
+#################
+### SECONDARY ###
+#################
+#Change those if you want another kernel than hammerhead,
+#or another version of the kernel.
 
-export wconfig=$PWD/wireless-config
+export KERNEL=$KERNELS/hammerhead                    #kernel name
+export CUSTOM_IMAGE=$KERNEL/arch/arm/boot/zImage-dtb #build image after compilation
+export KERNEL_VER=hammerhead-lmy48i                  #build code name / kernel version
+export RADIO_VER=hammerhead-m8974a-2.0.50.2.26       #radio code name
 
-export PATH=$PATH:$SDK_TOOLS:$TOOLCHAIN
+############
+### PATH ###
+############
+#to make your life easier ...
+
+export PATH=$PATH:$TOOLCHAIN:$IMG_TOOLS
