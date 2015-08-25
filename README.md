@@ -55,15 +55,15 @@ get a similar tree than the one showed below. Only important files are shown.
 
 ```
 MTP
-├── README.doc	       #GETTING STARTED
-├── configure          #initial configuration (launch one time) 
-├── init_env.sh        #environment variables 
+├── README.doc              #GETTING STARTED
+├── configure                   #initial configuration (launch one time) 
+├── init_env.sh                 #environment variables 
 │
 ├── android
-│   ├── README.doc	    #DOCUMENTATION
+│   ├── README.doc          #DOCUMENTATION
 │   │
 │   ├── android-img-tools   #Pack, unpack, make boot images
-│   │   ├── mkbootimg	        #make a new boot image from a kernel build image
+│   │   ├── mkbootimg           #make a new boot image from a kernel build image
 │   │   └── unpackbootimg       #unpack factory image
 │   │
 │   ├── android-sdk-linux   #Google SDK for android
@@ -73,8 +73,8 @@ MTP
 │   ├── boot-img            #Images to be flashed into device
 │   │   ├── radio-hammerhead-m8974a-2.0.50.2.26.img
 │   │   ├── bootloader-hammerhead-hhz12h.img
-│   │   ├── boot.img	        #kernel
-│   │   ├── custom_boot.img	#new kernel (modified)
+│   │   ├── boot.img            #kernel
+│   │   ├── custom_boot.img     #new kernel (modified)
 │   │   ├── cache.img
 │   │   ├── recovery.img
 │   │   ├── system.img
@@ -86,7 +86,7 @@ MTP
 │   ├── toolchain           #Cross-compiling toolchain
 │   │   └── arm-eabi-4.7    
 │   │
-│   ├── kernels		    #Kernel sources (you can add new ones)
+│   ├── kernels             #Kernel sources (you can add new ones)
 │   │   └── hammerhead          #android 'hammerhead' kernel (Nexus 5)
 │   │
 │   └── scripts             #Scripts to build, make boot image, unlock and flash device
@@ -106,9 +106,9 @@ MTP
     ├── stop.sh                 #stop AP, stop monitoring and turn Power Save off
     ├── cleanup.sh              #delete all archived log (clear 'archive' folder)
     │
-    ├── archive		        #Old logs
+    ├── archive             #Old logs
     │
-    ├── logs		        #Airodump logs, ap log and ath9k_htc functions trace
+    ├── logs                #Airodump logs, ap log and ath9k_htc functions trace
     │   ├── ap_log.txt          #log of Access Point actions
     │   ├── ath9k_trace_log.txt #trace of functions calls inside ath9k_htc driver
     │   ├── beacons.cap-01.cap  #dump file to be open with Wireshark
@@ -116,7 +116,7 @@ MTP
     │   ├── beacons.cap-01.kismet.csv
     │   └── beacons.cap-01.kismet.netxml
     │
-    └── scripts	            #Scripts to on/off AP (hostapd), monitor, turn on/off PSM
+    └── scripts             #Scripts to on/off AP (hostapd), monitor, turn on/off PSM
         ├── monitor_ap.sh       #start a monitor interface and create a record dump file
         ├── psm_off.sh          #turn off psm
         ├── psm_on.sh           #turn on psm
