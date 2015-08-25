@@ -101,8 +101,8 @@ MTP
     ├── README.doc	        #DOCUMENTATION
     ├── hostapd.conf	        #hostapd AP config
     ├── hostapd_def.conf        #hostapd AP default config
-    ├── start.sh	        #start AP, start monitoring and turn Power Save on
-    ├── stop.sh		        #stop AP, stop monitoring and turn Power Save off
+    ├── start.sh	            #start AP, start monitoring and turn Power Save on
+    ├── stop.sh		            #stop AP, stop monitoring and turn Power Save off
     ├── cleanup.sh              #delete all archived log (clear 'archive' folder)
     │
     ├── archive		        #Old logs
