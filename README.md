@@ -1,7 +1,8 @@
 #**EASYBOOT**
-###An easy tool to modify, build and flash a new Android kernel for Google Nexus 5 smartphone.
+####Modify, build and flash a new Android kernel for Google Nexus 5 smartphone.
+####Turn a wireless interface (WLAN) into an Access Point and debug a wireless driver.
 
-##**PRESENTATION**
+##**Presentation**
 
 The ultimate goal of this project is to modify or add functionalities to the kernel and drivers for an Android device.
 The objective is to achieve high efficiency and not lose time setting everything up.
@@ -21,7 +22,7 @@ It also enables PSM (Power Save Mode) if your wireless driver supports it.
 
 *Note: for a more detailed listing of what is included, go to PROJECT TREE section.*
 
-##**GETTING STARTED**
+##**Getting Started**
 
 **1. Initial configuration**
 
@@ -47,7 +48,7 @@ in your ~/.bashrc file.
 * In the 'scripts' folder, you will find shell scripts that will make your life easy.
 * Scripts are detailed in README.doc file in each folder, along with instructions.
 
-##**PROJECT TREE**
+##**Project Tree**
 
 Once you're done with the configuration and initialization, you will
 get a similar tree than the one showed below. Only important files are shown.
@@ -99,10 +100,10 @@ MTP
 │
 └── wireless-config
     ├── README.doc	        #DOCUMENTATION
-    ├── hostapd.conf	        #hostapd AP config
+    ├── hostapd.conf            #hostapd AP config
     ├── hostapd_def.conf        #hostapd AP default config
-    ├── start.sh	            #start AP, start monitoring and turn Power Save on
-    ├── stop.sh		            #stop AP, stop monitoring and turn Power Save off
+    ├── start.sh                #start AP, start monitoring and turn Power Save on
+    ├── stop.sh                 #stop AP, stop monitoring and turn Power Save off
     ├── cleanup.sh              #delete all archived log (clear 'archive' folder)
     │
     ├── archive		        #Old logs
