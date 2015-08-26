@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "HEY"
-
 #Main environment variables
 MTP=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) #Main folder Path
 export MTP=$MTP

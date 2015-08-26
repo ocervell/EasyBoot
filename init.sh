@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Hello noobie !"
 
 #####################
 ### BUILD OPTIONS ###
