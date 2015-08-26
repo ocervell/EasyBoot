@@ -8,7 +8,7 @@ source $MTP/init.sh #Script containing all others environment variables
 if ! grep -q 'MTP' "$HOME/.bashrc"
 then
    sudo sed -i '/export MTP/d' $HOME/.bashrc
-   echo "export MTP='$PWD'" >> $HOME/.bashrc
+   echo "export MTP='$MTP'" >> $HOME/.bashrc
 fi
 source $HOME/.bashrc
 
