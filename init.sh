@@ -34,7 +34,7 @@ export RECOVERY=$ANDROID/custom-recovery
 
 export KERNEL=$KERNELS/hammerhead                    #kernel name
 export CUSTOM_IMAGE=$KERNEL/arch/arm/boot/zImage-dtb #build image after compilation
-export KERNEL_VER=hammerhead-lmy48i                  #build code name / kernel version
+export KERNEL_VER=hammerhead-hhz12h                  #build code name / kernel version
 export RADIO_VER=hammerhead-m8974a-2.0.50.2.26       #radio code name
 
 ############
