@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "THIS IS THE INIT.SH FILE"
 #####################
 ### BUILD OPTIONS ###
 #####################
