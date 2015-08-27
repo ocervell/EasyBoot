@@ -1,0 +1,2 @@
+Network;NetType;ESSID;BSSID;Info;Channel;Cloaked;Encryption;Decrypted;MaxRate;MaxSeenRate;Beacon;LLC;Data;Crypt;Weak;Total;Carrier;Encoding;FirstTime;LastTime;BestQuality;BestSignal;BestNoise;GPSMinLat;GPSMinLon;GPSMinAlt;GPSMinSpd;GPSMaxLat;GPSMaxLon;GPSMaxAlt;GPSMaxSpd;GPSBestLat;GPSBestLon;GPSBestAlt;DataSize;IPType;IP;
+1;infrastructure;;C4:E9:84:10:52:DF;;108;No;OPN,None;No;-1.0;0;0;0;42;0;0;42;;;Wed Aug 26 13:33:51 2015;Wed Aug 26 13:37:28 2015;0;0;0;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0;0;0.0.0.0;
