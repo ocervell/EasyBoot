@@ -7,24 +7,22 @@
 
 export ARCH=arm #target architecture (android device = arm)
 export SUBARCH=arm
-export CC=$ANDROID/toolchain/arm-eabi-4.7/bin/arm-eabi- #cross-compiler (android device = arm-eabi)
+export CC=$EasyBoot/toolchain/arm-eabi-4.7/bin/arm-eabi- #cross-compiler (android device = arm-eabi)
 export USE_CCACHE=1 #build cache to accelerate compilation
 
 ###################
 ### ENVIRONMENT ###
 ###################
-#Running the ./configure script should have exported MTP which is the root path of EasyBoot.
-#We still do it in this script "just in case".
+#Running the ./configure script should have exported EasyBoot variable, which is the root path of EasyBoot.
+#To make sure it is correctly exported, we do it again in this script.
 #Don't touch those variables as the scripts won't run anymore if you do.
 
-export MTP=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-export ANDROID=$MTP/android                           
-export WCONFIG=$MTP/wireless-config		      
-export KERNELS=$ANDROID/kernels
-export IMG_TOOLS=$ANDROID/android-img-tools
-export TOOLCHAIN=$ANDROID/toolchain/arm-eabi-4.7/bin
-export BOOTIMG=$ANDROID/boot-img
-export RECOVERY=$ANDROID/custom-recovery
+export EasyBoot=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+export KERNELS=$EasyBoot/kernels
+export IMG_TOOLS=$EasyBoot/android-img-tools
+export TOOLCHAIN=$EasyBoot/toolchain/arm-eabi-4.7/bin
+export BOOTIMG=$EasyBoot/boot-img
+export RECOVERY=$EasyBoot/custom-recovery
 
 #################
 ### SECONDARY ###
