@@ -3,13 +3,20 @@
 #Main environment variable
 EasyBoot=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) #Main folder Path
 export EasyBoot=$EasyBoot
-source $MTP/init.sh #Script containing all others environment variables
+
+echo "=============================="
+echo "===> CONFIGURATION SCRIPT <==="
+echo "=============================="
+echo ""
 
 #Add main global variable to
-if ! grep -q 'MTP' "$HOME/.bashrc"
+if ! grep -q 'EasyBoot' "$HOME/.bashrc"
 then
-   sudo sed -i '/export EasyBoot/d' $HOME/.bashrc
-   echo "export EasyBoot='$EasyBoot'" >> $HOME/.bashrc
+    read -p "Add EasyBoot to your environment ? (y/N) " yn 
+    case $yn in
+        [Yy]* ) sudo sed -i '/export EasyBoot/d' $HOME/.bashrc
+   		echo "export EasyBoot='$EasyBoot'" >> $HOME/.bashrc
+    esac
 fi
 source $HOME/.bashrc
 
@@ -46,7 +53,9 @@ echo "######################"
 
 sudo git submodule init
 sudo git submodule update
-cd $KERNEL
+
+echo "===> Hammerhead Kernel Sources Download <==="
+cd $EasyBoot/kernels/hammerhead
 sudo git checkout android-msm-hammerhead-3.4-lollipop-release
 
 echo ""
@@ -62,7 +71,7 @@ sudo wget https://dl.google.com/dl/android/aosp/hammerhead-lmy48i-factory-a38c34
 sudo tar xvzf hammerhead-lmy48i-factory-a38c3441.tgz
 sudo chmod 777 hammerhead-lmy48i
 sudo unzip hammerhead-lmy48i/image-hammerhead-lmy48i.zip
-sudo mv $BOOTIMG/hammerhead-lmy48i/* $BOOTIMG
+sudo mv $EasyBoot/boot-img/hammerhead-lmy48i/* $EasyBoot/boot-img/
 sudo rm *.sh
 sudo rm *.txt
 sudo rm *.zip
@@ -70,8 +79,8 @@ sudo rm *.bat
 
 echo ""
 echo "===> Recovery Image (TWRP) <==="
-sudo mkdir -p $ANDROID/custom-recovery
-cd $ANDROID/custom-recovery
+sudo mkdir -p $EasyBoot/custom-recovery
+cd $EasyBoot/custom-recovery
 sudo wget https://dl.twrp.me/hammerhead/twrp-2.8.7.1-hammerhead.img
 
 echo ""
@@ -79,7 +88,7 @@ echo "#################"
 echo "### CONFIGURE ###"
 echo "#################"
 sleep 1
-cd $ANDROID/android-img-tools
+cd $EasyBoot/android-img-tools
 sudo git checkout android-5.1.1_r4
 sudo ./configure
 
@@ -100,7 +109,7 @@ while true; do
     case $yn in
         [Yy]* ) echo "Troubleshooting steps:"
 		echo " 1. Open a new terminal (CTRL + ALT + T)"
-                echo " 2. cd $ANDROID/android-img-tools"
+                echo " 2. cd $EasyBoot/android-img-tools"
                 echo " 3. sudo make clear"
                 echo " 4. sudo make clean"
                 echo " 5. sudo ./configure"
@@ -114,6 +123,3 @@ done
 
 echo ""
 echo "Done. Script exited successfully."
-
-
-#Enable ath9k_htc modules (driver + debugging) to config file

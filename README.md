@@ -1,6 +1,5 @@
 #**EASYBOOT**
 ####Modify, build and flash a new Android kernel for Google Nexus 5 smartphone.
-####Turn a wireless interface (WLAN) into an Access Point and debug a wireless driver.
 
 ##**Presentation**
 
@@ -44,9 +43,8 @@ in your ~/.bashrc file.
 
 **3. Play with the scripts**
 
-* In each folder 'android' and 'wireless-config' you have a 'scripts' folder.
 * In the 'scripts' folder, you will find shell scripts that will make your life easy.
-* Scripts are detailed in README.doc file in each folder, along with instructions.
+* Scripts are detailed in 'manual.txt' file in each folder, along with instructions.
 
 ##**Project Tree**
 
@@ -54,27 +52,21 @@ Once you're done with the configuration and initialization, you will
 get a similar tree than the one showed below. Only important files are shown.
 
 ```
-MTP
-├── README.doc              #GETTING STARTED
-├── configure                   #initial configuration (launch one time) 
-├── init_env.sh                 #environment variables 
+EasyBoot
+├── README.md           #GitHub ReadMe file
+├── manual.txt          #manual for scripts and commands
+├── configure           #initial configuration (launch one time) 
+├── init_env.sh         #environment variables 
 │
-├── android
-│   ├── README.doc          #DOCUMENTATION
-│   │
-│   ├── android-img-tools   #Pack, unpack, make boot images
-│   │   ├── mkbootimg           #make a new boot image from a kernel build image
-│   │   └── unpackbootimg       #unpack factory image
-│   │
-│   ├── android-sdk-linux   #Google SDK for android
-│   │   ├── system-images       #images to be used by Android emulator
-│   │   └── platform-tools      #flashboot, adb and Android emulator
-│   │
-│   ├── boot-img            #Images to be flashed into device
-│   │   ├── radio-hammerhead-m8974a-2.0.50.2.26.img
-│   │   ├── bootloader-hammerhead-hhz12h.img
-│   │   ├── boot.img            #kernel
-│   │   ├── custom_boot.img     #new kernel (modified)
+├── android-img-tools   #Pack, unpack, make boot images
+│   ├── mkbootimg           #make a new boot image from a kernel build image
+│   └── unpackbootimg       #unpack factory image
+│
+├── boot-img            #Images to be flashed into device
+    ├── radio-hammerhead-m8974a-2.0.50.2.26.img
+│   ├── bootloader-hammerhead-hhz12h.img
+│   ├── boot.img            #kernel
+│   ├── custom_boot.img     #new kernel (modified)
 │   │   ├── cache.img
 │   │   ├── recovery.img
 │   │   ├── system.img
@@ -84,7 +76,7 @@ MTP
 │   │   └── twrp-2.8.7.1-hammerhead.img
 │   │
 │   ├── toolchain           #Cross-compiling toolchain
-│   │   └── arm-eabi-4.7    
+│   │   └── arm-eabi-4.7
 │   │
 │   ├── kernels             #Kernel sources (you can add new ones)
 │   │   └── hammerhead          #android 'hammerhead' kernel (Nexus 5)
@@ -98,29 +90,6 @@ MTP
 │       ├── make_bootimg.sh     #make a boot image from kernel build
 │       └── unlock_phone.sh     #unlock oem of phone
 │
-└── wireless-config
-    ├── README.doc	        #DOCUMENTATION
-    ├── hostapd.conf            #hostapd AP config
-    ├── hostapd_def.conf        #hostapd AP default config
-    ├── start.sh                #start AP, start monitoring and turn Power Save on
-    ├── stop.sh                 #stop AP, stop monitoring and turn Power Save off
-    ├── cleanup.sh              #delete all archived log (clear 'archive' folder)
-    │
-    ├── archive             #Old logs
-    │
-    ├── logs                #Airodump logs, ap log and ath9k_htc functions trace
-    │   ├── ap_log.txt          #log of Access Point actions
-    │   ├── ath9k_trace_log.txt #trace of functions calls inside ath9k_htc driver
-    │   ├── beacons.cap-01.cap  #dump file to be open with Wireshark
-    │   ├── beacons.cap-01.csv
-    │   ├── beacons.cap-01.kismet.csv
-    │   └── beacons.cap-01.kismet.netxml
-    │
-    └── scripts             #Scripts to on/off AP (hostapd), monitor, turn on/off PSM
-        ├── monitor_ap.sh       #start a monitor interface and create a record dump file
-        ├── psm_off.sh          #turn off psm
-        ├── psm_on.sh           #turn on psm
-        ├── start_ap.sh         #start AP mode
-        └── stop_ap.sh          #stop AP mode
-```   
+
+```
 

@@ -1,4 +1,6 @@
 #!/bin/bash
+### MANUAL.TXT ###
+### Scripts and important commands for EasyBoot ###
 
 ###############
 ### SCRIPTS ###
