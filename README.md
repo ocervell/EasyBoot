@@ -3,48 +3,41 @@
 
 ##**Presentation**
 
-The ultimate goal of this project is to modify or add functionalities to the kernel and drivers for an Android device.
-The objective is to achieve high efficiency and not lose time setting everything up.
-It specifically provides tools to compile hammerhead kernel (Nexus 5). 
+* EasyBoot contains all the tools to modify or add functionalities to the kernel and drivers for an Android device.
+* EasyBoot objective is to achieve high efficiency and not lose time setting everything up.
+* EasyBoot specifically provides tools for Nexus 5 (hammerhead kernel). In particular, downloading hammerhead kernel sources and factory image is automated.
 
-The tree is composed of two main folders: 'android' and 'wireless-config':
-
-**android**:
-Contains all the tools to compile and flash a new kernel in a Nexus 5 phone, though
-it can be easily adapted to any Android phone. It also provides a custom recovery (TWRP) so you
-don't hardfreeze your phone.
-
-**wireless-config**:
-Contains all the tools to turn an hardware device into an Access Point.
-The hardware device has to be compatible with MONITOR MODE. If it is not, the scripts won't work.
-It also enables PSM (Power Save Mode) if your wireless driver supports it.
-
-*Note: for a more detailed listing of what is included, go to PROJECT TREE section.*
+##**What's left to do**
+* Make it compatible with all Google's device.
+* Make it compatible with other manufacter's device (Samsung, HTC, Nokia ...).
+* Give more options to the user in the configure script.
+* Create a Command Line Interface (CLI).
+* Create a Graphical User Interface (GUI).
+* 
 
 ##**Getting Started**
 
 **1. Initial configuration**
 
-`./configure`
-* export a global variable in your ~/.bashrc file.
-* install all necessary tools using apt-get install.
-* clone repositories needed to get started.
-* get sources for hammerhead kernel (Nexus 5).
+`source configure`
+* export a global variable in your `~/.bashrc` file.
+* install all necessary tools using `apt-get install` (adb, fastboot, build utilities ...).
+* clone repositories needed to get started (`android_img_repack_tools`, `ARM-eabi-4.7 toolchain`, `hammerhead kernel`).
+* get factory images for hammerhead kernel.
 
 **2. Initiate the environment**
 
 `source init_env.sh`
 * **Important:** Each time you reboot your computer, those global variables will disappear.
 You have to source it again everytime. To avoid that, you can put the content of init_env.sh
-in your ~/.bashrc file.
-* If you're using a different kernel than me, change KERNEL variable.
-* If you're using a different toolchain than me, change TOOLCHAIN variable.
-* If you don't know, don't change anything.
+in your `~/.bashrc` file.
+* If you want to use a different kernel than me, change KERNEL variable and put the path to your kernel source instead. You will also have to download the factory images for your device and put them into `boot-img` folder.
+* If you want to use a different toolchain than me, change TOOLCHAIN variable and put the path to your toolchain binaries instead.
 
 **3. Play with the scripts**
 
-* In the 'scripts' folder, you will find shell scripts that will make your life easy.
-* Scripts are detailed in 'manual.txt' file in each folder, along with instructions.
+* In the `scripts` folder, you will find shell scripts that will make your life easy.
+* Scripts are detailed in `manual.txt` file in each folder, along with instructions.
 
 ##**Project Tree**
 
