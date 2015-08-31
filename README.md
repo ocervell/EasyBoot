@@ -21,7 +21,7 @@
 `source configure`
 * export a global variable in your `~/.bashrc` file.
 * install all necessary tools using `apt-get install` (adb, fastboot, build utilities ...).
-* clone repositories needed to get started (`android_img_repack_tools`, `ARM-eabi-4.7 toolchain`, `hammerhead kernel`).
+* clone repositories needed to get started (android_img_repack_tools, ARM-eabi-4.7 toolchain, hammerhead kernel).
 * get factory images for hammerhead kernel.
 
 **2. Initiate the environment**
