@@ -26,16 +26,11 @@
 * clones repositories needed to get started (android_img_repack_tools, ARM-eabi-4.7 toolchain, hammerhead kernel).
 * gets factory images for hammerhead kernel.
 
-**2. Initiate the environment**
-
-`source init_env.sh`
-* **Important:** Each time you reboot your computer, those global variables will disappear.
-You have to source it again everytime. To avoid that, you can put the content of init_env.sh
-in your `~/.bashrc` file.
+In the `init.sh` script:
 * If you want to use a different kernel than me, change KERNEL variable and put the path to your kernel source instead. You will also have to download the factory images for your device and put them into `boot-img` folder.
 * If you want to use a different toolchain than me, change TOOLCHAIN variable and put the path to your toolchain binaries instead.
 
-**3. Play with the scripts**
+**2. Play with the scripts**
 
 * In the `scripts` folder, you will find shell scripts that will make your life easy.
 * Scripts are detailed in `manual.txt` file in each folder, along with instructions.
