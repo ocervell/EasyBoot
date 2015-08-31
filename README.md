@@ -4,10 +4,10 @@
 ##**Presentation**
 
 * EasyBoot contains all the tools to modify or add functionalities to the kernel and drivers for an Android device.
-* EasyBoot allows you to achieve high efficiency to flash new ROMs, modify, build and flash kernels/ROMs.
-* EasyBoot contains a recovery bootloader (TWRP) that can save your device from a softfreeze. I strongly advise to flash this recovery image prior to try to flash a new kernel.
+* EasyBoot allows you to achieve high efficiency to modify, build and flash kernels/ROMs.
+* EasyBoot also contains a recovery bootloader (TWRP) that can save your device from a softfreeze, backup your system, and restore it. I strongly advise to flash this recovery image prior to try to flash a new kernel.
 
-Note: At the moment, EasyBoot specifically provides tools for Nexus 5 (hammerhead kernel). In particular, downloading hammerhead kernel sources and factory image is automated.
+**Note:** At the moment, EasyBoot specifically provides tools for Nexus 5 (hammerhead kernel). In particular, downloading hammerhead kernel sources and factory image is automated.
 
 ##**What's left to do**
 * Make it compatible with all Google's device.
@@ -21,10 +21,10 @@ Note: At the moment, EasyBoot specifically provides tools for Nexus 5 (hammerhea
 **1. Initial configuration**
 
 `source configure`
-* export a global variable in your `~/.bashrc` file.
-* install all necessary tools using `apt-get install` (adb, fastboot, build utilities ...).
-* clone repositories needed to get started (android_img_repack_tools, ARM-eabi-4.7 toolchain, hammerhead kernel).
-* get factory images for hammerhead kernel.
+* exports a global variable in your `~/.bashrc` file.
+* installs all necessary tools using `apt-get install` (adb, fastboot, build utilities ...).
+* clones repositories needed to get started (android_img_repack_tools, ARM-eabi-4.7 toolchain, hammerhead kernel).
+* gets factory images for hammerhead kernel.
 
 **2. Initiate the environment**
 
