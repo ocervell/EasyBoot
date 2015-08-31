@@ -33,7 +33,7 @@ In the `init.sh` script:
 **2. Play with the scripts**
 
 * In the `scripts` folder, you will find shell scripts that will make your life easy.
-* Scripts are detailed in `manual.txt` file in each folder, along with instructions.
+* Scripts are detailed in `manual.txt` file, along with instructions and useful commands.
 
 ##**Project Tree**
 
