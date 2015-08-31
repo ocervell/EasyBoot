@@ -13,7 +13,6 @@
 * Give more options to the user in the configure script.
 * Create a Command Line Interface (CLI).
 * Create a Graphical User Interface (GUI).
-* 
 
 ##**Getting Started**
 
