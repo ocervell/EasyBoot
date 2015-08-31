@@ -1,15 +1,17 @@
 #!/bin/bash
+### CONFIGURE ###
 
-#Main environment variable
-EasyBoot=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) #Main folder Path
-export EasyBoot=$EasyBoot
-
+echo ""
 echo "=============================="
 echo "===> CONFIGURATION SCRIPT <==="
 echo "=============================="
 echo ""
 
-#Add main global variable to
+#Main environment variable
+EasyBoot=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) #Main folder Path
+export EasyBoot=$EasyBoot
+
+#Add main global variable to ~/.bashrc
 if ! grep -q 'EasyBoot' "$HOME/.bashrc"
 then
     read -p "Add EasyBoot to your environment ? (y/N) " yn 
