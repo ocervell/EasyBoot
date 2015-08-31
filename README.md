@@ -4,8 +4,10 @@
 ##**Presentation**
 
 * EasyBoot contains all the tools to modify or add functionalities to the kernel and drivers for an Android device.
-* EasyBoot objective is to achieve high efficiency and not lose time setting everything up.
-* EasyBoot specifically provides tools for Nexus 5 (hammerhead kernel). In particular, downloading hammerhead kernel sources and factory image is automated.
+* EasyBoot allows you to achieve high efficiency to flash new ROMs, modify, build and flash kernels/ROMs.
+* EasyBoot contains a recovery bootloader (TWRP) that can save your device from a softfreeze. I strongly advise to flash this recovery image prior to try to flash a new kernel.
+
+Note: At the moment, EasyBoot specifically provides tools for Nexus 5 (hammerhead kernel). In particular, downloading hammerhead kernel sources and factory image is automated.
 
 ##**What's left to do**
 * Make it compatible with all Google's device.
