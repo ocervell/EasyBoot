@@ -1,0 +1,129 @@
+#!/bin/bash
+### CONFIGURE ###
+
+echo ""
+echo "=============================="
+echo "===> CONFIGURATION SCRIPT <==="
+echo "=============================="
+echo ""
+
+#Main environment variable
+EasyBoot=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) #Main folder Path
+export EasyBoot=$EasyBoot
+
+#Add main global variable to ~/.bashrc
+if ! grep -q 'EasyBoot' "$HOME/.bashrc"
+then
+    read -p "Add EasyBoot to your environment ? (y/N) " yn 
+    case $yn in
+        [Yy]* ) sudo sed -i '/export EasyBoot/d' $HOME/.bashrc
+   		echo "export EasyBoot='$EasyBoot'" >> $HOME/.bashrc
+    esac
+fi
+source $HOME/.bashrc
+
+
+#Checking for an Ubuntu version
+echo ""
+echo "###############"
+echo "### APT-GET ###"
+echo "###############"
+sleep 1
+gcc --version > tmp.txt
+if grep -q 'Ubuntu' 'tmp.txt'
+then 
+   echo "Ubuntu detected."
+   rm tmp.txt
+   echo "Installing required utilites ..."
+   sudo apt-get -y install wget git bison gcc-multilib g++-multilib gperf libxml2-utils make python-networkx zlib1g-dev zip gnupg flex libpcre++-dev libsdl-dev libesd0-dev libwxgtk2.8-dev build-essential curl libncurses5-dev valgrind libreadline6-dev libc6-dev x11proto-core-dev libx11-dev libz-dev gawk texinfo automake libtool cvs hostapd aircrack-ng wireshark android-tools-adb android-tools-fastboot
+else
+   echo "Ubuntu not detected. Commands like 'apt-get' included in this script won't work. Run them manually"
+   rm tmp.txt
+   sleep 2
+fi
+
+
+######################
+### ANDROID FOLDER ###
+######################
+
+sudo mkdir -p kernels/hammerhead
+
+#Clone repositories
+echo ""
+echo "######################"
+echo "### GIT SUBMODULES ###"
+echo "######################"
+
+sudo git submodule init
+sudo git submodule update
+
+echo "===> Hammerhead Kernel Sources Download <==="
+cd $EasyBoot/kernels/hammerhead
+sudo git checkout android-msm-hammerhead-3.4-lollipop-release
+
+echo ""
+echo "##############"
+echo "### IMAGES ###"
+echo "##############" 
+
+echo ""
+echo "===> Hammerhead Kernel Factory Image <==="
+sudo mkdir -p $EasyBoot/boot-img
+cd $EasyBoot/boot-img
+sudo wget https://dl.google.com/dl/android/aosp/hammerhead-lmy48i-factory-a38c3441.tgz
+sudo tar xvzf hammerhead-lmy48i-factory-a38c3441.tgz
+sudo chmod 777 hammerhead-lmy48i
+sudo unzip hammerhead-lmy48i/image-hammerhead-lmy48i.zip
+sudo mv $EasyBoot/boot-img/hammerhead-lmy48i/* $EasyBoot/boot-img/
+sudo rm *.sh
+sudo rm *.txt
+sudo rm *.zip
+sudo rm *.bat
+
+echo ""
+echo "===> Recovery Image (TWRP) <==="
+sudo mkdir -p $EasyBoot/custom-recovery
+cd $EasyBoot/custom-recovery
+sudo wget https://dl.twrp.me/hammerhead/twrp-2.8.7.1-hammerhead.img
+
+echo ""
+echo "#################"
+echo "### CONFIGURE ###"
+echo "#################"
+sleep 1
+cd $EasyBoot/android-img-tools
+sudo git checkout android-5.1.1_r4
+sudo ./configure
+
+echo ""
+echo "############"
+echo "### MAKE ###"
+echo "############"
+sleep 1
+sudo make
+
+echo ""
+echo "#######################"
+echo "### TROUBLESHOOTING ###"
+echo "#######################"
+sleep 1
+while true; do
+    read -p "Any errors during the previous compilation ? (y/n) " yn
+    case $yn in
+        [Yy]* ) echo "Troubleshooting steps:"
+		echo " 1. Open a new terminal (CTRL + ALT + T)"
+                echo " 2. cd $EasyBoot/android-img-tools"
+                echo " 3. sudo make clear"
+                echo " 4. sudo make clean"
+                echo " 5. sudo ./configure"
+                echo " 6. sudo make"
+		echo "Note: If you still have errors, check if something went wrong with the apt-get installs and reinstall the broken tools manually"
+                continue;;
+        [Nn]* ) break;;
+            * ) echo "Please answer yes or no.";;
+    esac
+done
+
+echo ""
+echo "Done. Script exited successfully."

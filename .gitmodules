@@ -1,0 +1,9 @@
+[submodule "toolchain/arm-eabi-4.7"]
+	path = toolchain/arm-eabi-4.7
+	url = https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7
+[submodule "android-img-tools"]
+	path = android-img-tools
+	url = https://github.com/ocervell/android_img_repack_tools.git
+[submodule "kernels/hammerhead"]
+	path = kernels/hammerhead
+	url = https://android.googlesource.com/kernel/msm.git
