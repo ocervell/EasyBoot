@@ -47,8 +47,11 @@ fi
 ### ANDROID FOLDER ###
 ######################
 
+<<<<<<< HEAD
 sudo mkdir -p kernels/hammerhead
 
+=======
+>>>>>>> 515caf68ed4d5c457aab0243f68382233705d3d2
 #Clone repositories
 echo ""
 echo "######################"
