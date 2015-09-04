@@ -49,8 +49,8 @@ source init_env.sh
 
 adb devices#list all USB connected devices
 adb reboot-bootloader       #reboot device in bootloader mode
-adb shell		                 #start a remote shell on the device
-adb shell -d		              #run a command on remote device
+adb shell		         #start a remote shell on the device
+adb shell -d		        #run a command on remote device
 adb install path_to_apk     #install an .apk application on device
 adb logcat [opts][filter]   #prints log data on the screen
 
@@ -61,8 +61,8 @@ adb logcat [opts][filter]   #prints log data on the screen
 #fastboot is an utility to facilitate flashing on devices.
 #Simple commands are used to flash new kernels, recovery, etc.
 
-fastboot devices	                    #list all USB connected devices
-fastboot reboot		                    #reboot device
+fastboot devices	             #list all USB connected devices
+fastboot reboot		             #reboot device
 fastboot flash boot boot.img         #flash a new boot .img into device
 fastboot flash bootloader btldr.img  #flash a new bootloader .img into device
 fastboot flash radio radio.img       #flash a new radio .img into device
