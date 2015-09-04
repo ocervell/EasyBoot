@@ -7,35 +7,35 @@
 ###############
 
 source configure
- #check if you're running Ubuntu
+ #checks if you're running Ubuntu
  #sudo apt-get install a lot of stuff
- #get the git repositories you need to get started
+ #gets the git repositories you need to get started
 
 source init_env.sh		   
- #define environment variables needed to build
- #define environment variables used by other scripts
+ #defines environment variables needed to build
+ #defines environment variables used by other scripts
  #note: you have to source this script so the environment variables are exported
 
 ./scripts/build_kernel.sh     
- #build the kernel located in kernels/hammerhead
+ #builds the kernel located in kernels/hammerhead
  #default is hammerhead_kernel
 
 ./scripts/make_bootimg.sh
- #unpack the factory image download on Google website
- #repack the kernel image boot.img with the newly build kernel
+ #unpacks the factory image download on Google website
+ #repacks the kernel image boot.img with the newly build kernel
  #the new boot image is called custom_boot.img in boot-img folder
 
 ./scripts/unlock_phone.sh
  #OEM unlock of phone to be able to flash images or/and root device.
 
 ./scripts/flash_kernel.sh
- #flash custom_boot.img image located in boot-img into device
+ #flashes custom_boot.img image located in boot-img into device
 
 ./scripts/flash_recovery.sh
- #flash recovery image located in custom-recovery/twrp into device
+ #flashes recovery image located in custom-recovery/twrp into device
 
 ./scripts/flash_all.sh
- #flash all .img files in boot-img into device
+ #flashes all .img files in boot-img into device
  #includes boot.img, bootloader-$kernelversion.img, userdata.img, ...
 
 
@@ -49,8 +49,8 @@ source init_env.sh
 
 adb devices                 #list all USB connected devices
 adb reboot-bootloader       #reboot device in bootloader mode
-adb shell		    #start a remote shell on the device
-adb shell -d		    #run a command on remote device
+adb shell		                 #start a remote shell on the device
+adb shell -d		              #run a command on remote device
 adb install path_to_apk     #install an .apk application on device
 adb logcat [opts][filter]   #prints log data on the screen
 
@@ -61,9 +61,9 @@ adb logcat [opts][filter]   #prints log data on the screen
 #fastboot is an utility to facilitate flashing on devices.
 #Simple commands are used to flash new kernels, recovery, etc.
 
-fastboot devices	             #list all USB connected devices
-fastboot reboot		             #reboot device
-fastboot flash boot boot.img	     #flash a new boot .img into device
+fastboot devices	                    #list all USB connected devices
+fastboot reboot		                    #reboot device
+fastboot flash boot boot.img	        #flash a new boot .img into device
 fastboot flash bootloader btldr.img  #flash a new bootloader .img into device
 fastboot flash radio radio.img       #flash a new radio .img into device
 fastboot flash system system.img     #flash a new system .img into device
