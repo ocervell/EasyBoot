@@ -1,5 +1,3 @@
-Hello
-
 #**EASYBOOT**
 ####Modify, build and flash a new Android kernel for Google Nexus 5 smartphone.
 
