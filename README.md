@@ -1,7 +1,7 @@
-#**EASYBOOT**
-####Modify, build and flash a new Android kernel for Google Nexus 5 smartphone.
+# EASYBOOT
+#### Modify, build and flash a new Android kernel for Google Nexus 5 smartphone.
 
-##**Presentation**
+## **Presentation**
 
 * EasyBoot contains all the tools to modify or add functionalities to the kernel and drivers for an Android device.
 * EasyBoot allows you to achieve high efficiency to modify, build and flash kernels/ROMs.
@@ -9,14 +9,14 @@
 
 **Note:** At the moment, EasyBoot specifically provides tools for Nexus 5 (hammerhead kernel). In particular, downloading hammerhead kernel sources and factory image is automated.
 
-##**What's left to do**
+## **What's left to do**
 * Make it compatible with all Google's device.
 * Make it compatible with other manufacter's device (Samsung, HTC, Nokia ...).
 * Give more options to the user in the configure script.
 * Create a Command Line Interface (CLI).
 * Create a Graphical User Interface (GUI).
 
-##**Getting Started**
+## **Getting Started**
 
 **1. Initial configuration**
 
@@ -35,7 +35,7 @@ In the `init.sh` script:
 * In the `scripts` folder, you will find shell scripts that will make your life easy.
 * Scripts are detailed in `manual.txt` file, along with instructions and useful commands.
 
-##**Project Tree**
+## **Project Tree**
 
 Once you're done with the configuration and initialization, you will
 get a similar tree than the one showed below. Only important files are shown.
